@@ -15,5 +15,5 @@
     )
     (global $stack_ptr (mut i32) (i32.const 65536))
     (memory $memory (export "memory") 1)
-    (data (i32.const 0) "hello, !\n")
+    (data (i32.const 0) "Hello, !\n")
 )
