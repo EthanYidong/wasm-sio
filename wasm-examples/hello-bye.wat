@@ -24,7 +24,7 @@
     )
     (func (export "_start") (local $read_size i32)
         block
-            loop $loop
+            loop
                 global.get $stack_ptr
                 (call $stdin_readline (global.get $stack_ptr))
                 local.tee $read_size
@@ -40,8 +40,8 @@
         end
         (call $stdout_print (i32.const 12) (i32.const 5))
     )
-    (global $stack_ptr (mut i32) (i32.const 65536))
     (memory $memory (export "memory") 1)
+    (global $stack_ptr (mut i32) (i32.const 65536))
     (data (i32.const 0) "Hello, ") ;; 0..7
     (data (i32.const 7) "!\n") ;; 7..9
     (data (i32.const 9) "bye") ;; 9..12

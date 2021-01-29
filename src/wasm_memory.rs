@@ -14,15 +14,15 @@ impl CopyType<'_> {
     }
 }
 
-pub fn checked_copy(memory: &Memory, wasm_ptr: usize, copy: CopyType) {
+pub fn checked_copy(memory: &Memory, wasm_ptr: i32, copy: CopyType) {
     let copy_len = copy.len();
 
     let (copy_start, copy_end) = match copy {
-        CopyType::FromWasmMemory(_) =>  (wasm_ptr as i64, wasm_ptr + copy_len),
-        CopyType::ToWasmMemory(_) => (wasm_ptr as i64 - copy_len as i64, wasm_ptr),
+        CopyType::FromWasmMemory(_) =>  (wasm_ptr, wasm_ptr + copy_len as i32),
+        CopyType::ToWasmMemory(_) => (wasm_ptr - copy_len as i32, wasm_ptr),
     };
 
-    if copy_start < 0 || copy_end > memory.data_size() as usize  {
+    if copy_start < 0 || copy_end > memory.data_size() as i32  {
         panic!("Out of bounds: range from {} to {}, max {}", copy_start, wasm_ptr, memory.data_size());
     }
 

@@ -13,8 +13,8 @@
         (call $stdout_print (global.get $stack_ptr) (i32.sub (local.get $read_size) (i32.const 1)))
         (call $stdout_print (i32.const 7) (i32.const 2))
     )
-    (global $stack_ptr (mut i32) (i32.const 65536))
     (memory $memory (export "memory") 1)
+    (global $stack_ptr (mut i32) (i32.const 65536))
     (data (i32.const 0) "Hello, ") ;; 0..7
     (data (i32.const 7) "!\n") ;; 7..9
 )

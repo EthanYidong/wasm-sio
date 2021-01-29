@@ -8,5 +8,8 @@ edition = "2018"
 
 [dependencies]
 wasmer = "1.0"
+wasmer-wasi = "1.0"
 
 structopt = "0.3"
+
+pretty_env_logger = "0.4"
