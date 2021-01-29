@@ -1,0 +1,12 @@
+[package]
+name = "wasm-sio"
+version = "0.1.0"
+authors = ["EthanYidong <ethanyidong@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wasmer = "1.0"
+
+structopt = "0.3"
